@@ -82,6 +82,18 @@ export { Label } from "./components/label"
 
 export { ListItem } from "./components/list-item"
 
+export {
+  navigationMenuTriggerStyle,
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuContent,
+  NavigationMenuTrigger,
+  NavigationMenuLink,
+  NavigationMenuIndicator,
+  NavigationMenuViewport,
+} from "./components/navigation-menu"
+
 export { Pagination } from "./components/pagination"
 
 export { Popover, PopoverContent, PopoverTrigger } from "./components/popover"
