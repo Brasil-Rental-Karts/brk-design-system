@@ -14,7 +14,7 @@ export interface ComboboxOption {
   label: string;
 }
 
-interface ComboboxProps {
+export interface ComboboxProps {
   options: ComboboxOption[];
   value?: string;
   placeholder?: string;
