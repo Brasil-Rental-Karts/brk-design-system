@@ -30,6 +30,7 @@ export {
 export { Checkbox } from "./components/checkbox"
 
 export { Combobox } from "./components/combobox"
+export type { ComboboxOption } from "./components/combobox"
 
 export {
   Dialog,
