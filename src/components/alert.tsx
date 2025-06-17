@@ -13,11 +13,11 @@ import { cn } from "../utils/cn";
 import { Button } from "./button";
 
 const alertVariants = cva(
-  "relative w-full rounded-xl border text-sm transition-all duration-200 animate-in fade-in-0 slide-in-from-top-1",
+  "relative w-full rounded-2xl border-2 text-sm transition-all duration-200 animate-in fade-in-0 slide-in-from-top-1",
   {
     variants: {
       variant: {
-        default: "bg-background text-foreground border-border shadow-sm",
+        default: "bg-background text-foreground border-border",
         destructive:
           "bg-red-50 text-red-900 border-red-200 dark:bg-red-950/30 dark:text-red-300 dark:border-red-800/50",
         success:
@@ -27,7 +27,7 @@ const alertVariants = cva(
         info:
           "bg-blue-50 text-blue-900 border-blue-200 dark:bg-blue-950/30 dark:text-blue-300 dark:border-blue-800/50",
         accent:
-          "bg-primary/10 text-primary-foreground border-primary/20 dark:bg-primary/20",
+          "bg-primary/10 text-foreground border-primary/20 dark:bg-primary/20",
       },
       size: {
         sm: "px-3 py-2",

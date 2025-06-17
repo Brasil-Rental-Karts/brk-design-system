@@ -32,6 +32,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "stories/tooltip.stories.tsx"],
   "exclude": ["node_modules", "dist", "stories"]
 } 

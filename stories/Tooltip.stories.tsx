@@ -1,69 +1,160 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import React from 'react'
-import { 
-  Tooltip, 
-  TooltipContent, 
-  TooltipProvider, 
-  TooltipTrigger 
-} from '../src/components/tooltip'
-import { Button } from '../src/components/button'
+import * as React from "react"
+import type { Meta, StoryObj } from "@storybook/react"
+import { Button } from "../src/components/button"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../src/components/tooltip"
 
 const meta = {
-  title: 'Components/Tooltip',
+  title: "Components/Tooltip",
   component: Tooltip,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     (Story) => (
       <TooltipProvider>
-        <Story />
+        <div className="flex min-h-[400px] items-center justify-center">
+          <Story />
+        </div>
       </TooltipProvider>
     ),
   ],
+  argTypes: {
+    side: {
+      control: "select",
+      options: ["top", "right", "bottom", "left"],
+      description: "Posição do tooltip em relação ao trigger",
+    },
+    align: {
+      control: "select",
+      options: ["start", "center", "end"],
+      description: "Alinhamento do tooltip em relação ao trigger",
+    },
+    sideOffset: {
+      control: "number",
+      description: "Distância entre o tooltip e o trigger",
+    },
+  },
 } satisfies Meta<typeof Tooltip>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => (
+  render: (args) => (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="outline">Passe o mouse aqui</Button>
+        <Button variant="outline">Hover me</Button>
       </TooltipTrigger>
-      <TooltipContent>
-        <p>Esta é uma dica de ferramenta!</p>
+      <TooltipContent {...args}>
+        <p>Tooltip padrão</p>
       </TooltipContent>
     </Tooltip>
   ),
 }
 
-export const WithIcon: Story = {
-  render: () => (
+export const Top: Story = {
+  render: (args) => (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button size="icon" variant="outline">
-          ?
-        </Button>
+        <Button variant="outline">Top</Button>
       </TooltipTrigger>
-      <TooltipContent>
-        <p>Clique para obter ajuda</p>
+      <TooltipContent side="top" {...args}>
+        <p>Tooltip no topo</p>
       </TooltipContent>
     </Tooltip>
   ),
 }
 
-export const Delayed: Story = {
-  render: () => (
-    <Tooltip delayDuration={1000}>
+export const Bottom: Story = {
+  render: (args) => (
+    <Tooltip>
       <TooltipTrigger asChild>
-        <Button>Tooltip com delay de 1s</Button>
+        <Button variant="outline">Bottom</Button>
       </TooltipTrigger>
-      <TooltipContent>
-        <p>Este tooltip aparece após 1 segundo</p>
+      <TooltipContent side="bottom" {...args}>
+        <p>Tooltip embaixo</p>
       </TooltipContent>
     </Tooltip>
   ),
 }
+
+export const Left: Story = {
+  render: (args) => (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant="outline">Left</Button>
+      </TooltipTrigger>
+      <TooltipContent side="left" {...args}>
+        <p>Tooltip à esquerda</p>
+      </TooltipContent>
+    </Tooltip>
+  ),
+}
+
+export const Right: Story = {
+  render: (args) => (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant="outline">Right</Button>
+      </TooltipTrigger>
+      <TooltipContent side="right" {...args}>
+        <p>Tooltip à direita</p>
+      </TooltipContent>
+    </Tooltip>
+  ),
+}
+
+export const AlignStart: Story = {
+  render: (args) => (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant="outline">Start</Button>
+      </TooltipTrigger>
+      <TooltipContent side="top" align="start" {...args}>
+        <p>Alinhado ao início</p>
+      </TooltipContent>
+    </Tooltip>
+  ),
+}
+
+export const AlignCenter: Story = {
+  render: (args) => (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant="outline">Center</Button>
+      </TooltipTrigger>
+      <TooltipContent side="top" align="center" {...args}>
+        <p>Alinhado ao centro</p>
+      </TooltipContent>
+    </Tooltip>
+  ),
+}
+
+export const AlignEnd: Story = {
+  render: (args) => (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant="outline">End</Button>
+      </TooltipTrigger>
+      <TooltipContent side="top" align="end" {...args}>
+        <p>Alinhado ao fim</p>
+      </TooltipContent>
+    </Tooltip>
+  ),
+}
+
+export const WithOffset: Story = {
+  render: (args) => (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant="outline">Offset Maior</Button>
+      </TooltipTrigger>
+      <TooltipContent sideOffset={12} {...args}>
+        <p>Offset maior (12px)</p>
+      </TooltipContent>
+    </Tooltip>
+  ),
+} 
