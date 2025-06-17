@@ -94,6 +94,8 @@ export {
   NavigationMenuViewport,
 } from "./components/navigation-menu"
 
+export { PageHeader } from "./components/page-header"
+
 export { Pagination } from "./components/pagination"
 
 export { Popover, PopoverContent, PopoverTrigger } from "./components/popover"
