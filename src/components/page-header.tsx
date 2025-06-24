@@ -20,7 +20,7 @@ export function PageHeader({
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         {/* Conteúdo à esquerda */}
         <div className="flex-1 min-w-0">
-          <h1 className="font-heading text-3xl md:text-4xl mb-2 flex gap-3 items-center">
+          <h1 className="font-heading truncate text-2xl md:text-4xl mb-2 flex gap-3 items-center">
             {icon}
             {title}
           </h1>
